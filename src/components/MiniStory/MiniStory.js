@@ -13,6 +13,7 @@ const MiniStory = ({ id, image, title }) => {
 };
 
 const Wrapper = styled.article`
+  min-width: 220px;
   display: flex;
   flex-direction: column;
   gap: 8px;
