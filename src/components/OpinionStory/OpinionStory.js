@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { QUERIES } from "../../constants";
+import { QUERIES, COLORS } from "../../constants";
 
 const OpinionStory = ({ id, title, author, avatar }) => {
   return (
-    <a href={`/story/${id}`}>
+    <Link href={`/story/${id}`}>
       <Wrapper>
         <Avatar alt="" src={avatar} />
         <div>
@@ -12,9 +12,28 @@ const OpinionStory = ({ id, title, author, avatar }) => {
           <ArticleTitle>{title}</ArticleTitle>
         </div>
       </Wrapper>
-    </a>
+    </Link>
   );
 };
+
+const Link = styled.a`
+  &:not(:first-of-type) {
+    padding-top: 16px;
+    border-top: 1px solid ${COLORS.gray[300]};
+  }
+
+  &:not(:last-of-type) {
+    padding-bottom: 16px;
+  }
+
+  @media (${QUERIES.tabletOnly}) {
+
+    &:not(:first-of-type) {
+      padding-top: 0;
+      border-top: none;
+    }
+  }
+`;
 
 const Wrapper = styled.article`
   color: var(--color-gray-900);

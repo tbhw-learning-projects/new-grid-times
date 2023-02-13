@@ -1,19 +1,30 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import { QUERIES } from "../../constants";
+import { COLORS, QUERIES } from "../../constants";
 
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
-    <a href={`/story/${id}`}>
+    <Link href={`/story/${id}`}>
       <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
         <Abstract>{abstract}</Abstract>
       </Wrapper>
-    </a>
+    </Link>
   );
 };
+
+const Link = styled.a`
+  &:not(:first-of-type) {
+    padding-top: 16px;
+    border-top: 1px solid ${COLORS.gray[300]};
+  }
+
+  &:not(:last-of-type) {
+    padding-bottom: 16px;
+  }
+`;
 
 const Wrapper = styled.article`
   display: grid;
